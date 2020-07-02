@@ -31,11 +31,11 @@
         "source": "https://github.com/picocms/Pico"
     },
     "require": {
-        "php": ">=5.3.6",
-        "twig/twig": "^1.36",
-        "symfony/yaml" : "^2.8",
-        "erusev/parsedown": "1.8.0-beta-7",
-        "erusev/parsedown-extra": "0.8.0-beta-1"
+        "php": ">=7.2.5",
+        "twig/twig": "^3.0",
+        "symfony/yaml" : "^5.0",
+        "erusev/parsedown": "1.7.4",
+        "erusev/parsedown-extra": "0.8.1"
     },
     "suggest": {
         "picocms/pico-theme": "Pico requires a theme to actually display the contents of your website. This is Pico's official default theme.",
@@ -43,10 +43,8 @@
         "picocms/composer-installer": "This Composer plugin is responsible for installing Pico plugins and themes using the Composer package manager."
     },
     "autoload": {
-        "psr-0": {
-            "Pico": "lib/",
-            "PicoPluginInterface": "lib/",
-            "AbstractPicoPlugin": "lib/"
+        "psr-4": {
+            "picocms\\Pico\\": "lib/"
         }
     },
     "extra": {

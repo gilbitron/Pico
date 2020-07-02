@@ -10,6 +10,10 @@
  * License-Filename: LICENSE
  */
 
+use picocms\Pico\AbstractPlugin;
+use picocms\Pico\Pico;
+use Twig\Environment as TwigEnvironment;
+
 /**
  * Pico dummy plugin - a template for plugins
  *
@@ -19,16 +23,16 @@
  * @author  Daniel Rudolf
  * @link    http://picocms.org
  * @license http://opensource.org/licenses/MIT The MIT License
- * @version 2.1
+ * @version 3.0
  */
-class DummyPlugin extends AbstractPicoPlugin
+class DummyPlugin extends AbstractPlugin
 {
     /**
      * API version used by this plugin
      *
      * @var int
      */
-    const API_VERSION = 3;
+    public const API_VERSION = 3;
 
     /**
      * This plugin is disabled by default
@@ -36,8 +40,8 @@ class DummyPlugin extends AbstractPicoPlugin
      * Usually you should remove this class property (or set it to NULL) to
      * leave the decision whether this plugin should be enabled or disabled by
      * default up to Pico. If all the plugin's dependenies are fulfilled (see
-     * {@see DummyPlugin::$dependsOn}), Pico enables the plugin by default.
-     * Otherwise the plugin is silently disabled.
+     * {@see self::$dependsOn}), Pico enables the plugin by default. Otherwise
+     * the plugin is silently disabled.
      *
      * If this plugin should never be disabled *silently* (e.g. when dealing
      * with security-relevant stuff like access control, or similar), set this
@@ -52,7 +56,7 @@ class DummyPlugin extends AbstractPicoPlugin
      * No matter what, the user can always explicitly enable or disable this
      * plugin in Pico's config.
      *
-     * @see AbstractPicoPlugin::$enabled
+     * @see AbstractPlugin::$enabled
      * @var bool|null
      */
     protected $enabled = false;
@@ -63,7 +67,7 @@ class DummyPlugin extends AbstractPicoPlugin
      * If your plugin doesn't depend on any other plugin, remove this class
      * property.
      *
-     * @see AbstractPicoPlugin::$dependsOn
+     * @see AbstractPlugin::$dependsOn
      * @var string[]
      */
     protected $dependsOn = array();
@@ -495,9 +499,9 @@ class DummyPlugin extends AbstractPicoPlugin
      *
      * @see Pico::getTwig()
      *
-     * @param Twig_Environment &$twig Twig instance
+     * @param TwigEnvironment &$twig Twig instance
      */
-    public function onTwigRegistered(Twig_Environment &$twig)
+    public function onTwigRegistered(TwigEnvironment &$twig)
     {
         // your code
     }

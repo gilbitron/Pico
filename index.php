@@ -26,7 +26,7 @@ if (is_file(__DIR__ . '/vendor/autoload.php')) {
 }
 
 // instance Pico
-$pico = new Pico(
+$pico = new \picocms\Pico\Pico(
     __DIR__,    // root dir
     'config/',  // config dir
     'plugins/', // plugins dir
@@ -34,7 +34,7 @@ $pico = new Pico(
 );
 
 // override configuration?
-//$pico->setConfig(array());
+//$pico->setConfig([]);
 
 // run application
 echo $pico->run();
